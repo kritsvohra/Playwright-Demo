@@ -6,35 +6,45 @@
 import { test, expect } from '@playwright/test';
 import WebsiteExplorationPage from '../page-objects/website-exploration.page';
 
-// --- Happy Path Scenarios ---
-// 1. Form Submission (GUI Elements)
-// 2. File Upload (Single/Multiple)
-// 3. Drag and Drop
-// 4. Table Data Validation (Static/Dynamic/Pagination)
-// 5. Alert Handling (Simple/Confirm/Prompt)
-// 6. Mouse Hover and Double Click
-// 7. Navigation and Broken Links
+// --- Test Scenario Matrix (Tabular Format) ---
 
-// --- Edge Cases ---
-// 1. Form Submission with missing/invalid data
-// 2. Upload unsupported file types/large files
-// 3. Drag and Drop to invalid targets
-// 4. Table with empty rows or missing columns
-// 5. Alerts dismissed/cancelled
-// 6. Mouse hover on non-interactive elements
-// 7. Broken links and error pages
+// Happy Path Scenarios
+// | Scenario                                    | Priority | CommonSteps Sequence                                 | Test Data Required         |
+// |---------------------------------------------|----------|-----------------------------------------------------|---------------------------|
+// | Form Submission (GUI Elements)              | High     | gotoGuiElements -> submitForm                        | validUser                 |
+// | File Upload (Single/Multiple)               | High     | uploadFile                                          | files.valid               |
+// | Drag and Drop                              | High     | gotoGuiElements -> dragAndDrop                       | -                         |
+// | Table Data Validation (Static/Dynamic/Pagination) | High | getStaticTableData                                  | -                         |
+// | Alert Handling (Simple/Confirm/Prompt)      | High     | gotoGuiElements -> handleSimpleAlert                 | -                         |
+// | Mouse Hover and Double Click                | Medium   | mouseHover, doubleClickCopy                          | -                         |
+// | Navigation and Broken Links                 | Medium   | checkBrokenLinks                                    | -                         |
 
-// --- Error Conditions ---
-// 1. Network failure during form submit/upload
-// 2. JavaScript errors on UI actions
-// 3. File upload with no file selected
-// 4. Table pagination out of bounds
+// Edge Cases
+// | Scenario                                    | Priority | Expected Behavior                                   | Validation Points         |
+// |---------------------------------------------|----------|-----------------------------------------------------|---------------------------|
+// | Form Submission with missing/invalid data   | Medium   | Form remains visible, no navigation                  | nameField visible         |
+// | Upload unsupported file types/large files   | Medium   | No error shown (unless UI feedback present)          | -                         |
+// | Drag and Drop to invalid targets            | Low      | Draggable remains visible                            | draggable visible         |
+// | Table with empty rows or missing columns    | Low      | Table present, header contains 'BookName'            | table header              |
+// | Alerts dismissed/cancelled                  | Low      | No error shown                                      | -                         |
+// | Mouse hover on non-interactive elements     | Low      | No error shown                                      | -                         |
+// | Broken links and error pages                | Medium   | Links checked, errors handled                        | links.length > 0          |
 
-// --- Accessibility Tests ---
-// 1. Keyboard navigation for all interactive elements
-// 2. Screen reader compatibility for forms, tables, and alerts
-// 3. Color contrast for text and backgrounds
-// 4. Focus indicators and ARIA attributes
+// Error Conditions
+// | Scenario                                    | Priority | Expected Behavior                                   | Validation Points         |
+// |---------------------------------------------|----------|-----------------------------------------------------|---------------------------|
+// | Network failure during form submit/upload    | Medium   | No error shown (unless UI feedback present)          | -                         |
+// | JavaScript errors on UI actions             | Low      | Error thrown, caught by test                         | error thrown              |
+// | File upload with no file selected           | Low      | No error shown (unless UI feedback present)          | -                         |
+// | Table pagination out of bounds              | Low      | Pagination link '5' does not exist                   | paginationLink count = 0  |
+
+// Accessibility Tests
+// | Scenario                                    | WCAG Level | Test Method                                         |
+// |---------------------------------------------|------------|-----------------------------------------------------|
+// | Keyboard navigation for all interactive elements | AA     | Tab through all interactive elements               |
+// | Screen reader compatibility for forms, tables, and alerts | AA | Verify aria-labels and roles                  |
+// | Color contrast for text and backgrounds     | AA         | Validate text/background contrast                   |
+// | Focus indicators and ARIA attributes        | AA         | Tab to field, check :focus and ARIA attributes      |
 
 // --- Exploratory Test Charter ---
 // Mission: Explore all interactive widgets and forms to discover usability, accessibility, and integration risks.

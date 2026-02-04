@@ -29,29 +29,29 @@
 
 ### Happy Path Scenarios
 
-| Scenario | Priority | CommonSteps Sequence | Test Data Required |
-|----------|----------|----------------------|--------------------|
-| [Scenario 1] | High | `login` -> `Find product` | [Data structure] |
-| [Scenario 2] | High | `login` -> `Find product` -> `Add to Cart` | [Data structure] |
+| Scenario      | Priority  | CommonSteps Sequence                          | Test Data Required |
+|---------------|-----------|-----------------------------------------------|--------------------|
+| [Scenario 1]  |   High    | `login` -> `Find product` | [Data structure]  |                    |
+| [Scenario 2]  |   High    | `login` -> `Find product` -> `Add to Cart`    | [Data structure]   |
 
 ## Edge Cases
-| Scenario | Priority | Expected Behavior | Validation Points |
-|----------|----------|-------------------|-------------------|
-| [Edge Case 1] | Medium | [Expected Result] | [What to Verify] |
-| [Edge Case 2] | Low | [Expected Result] | [What to Verify] |
+| Scenario      | Priority | Expected Behavior | Validation Points |
+|---------------|----------|-------------------|-------------------|
+| [Edge Case 1] |  Medium  | [Expected Result] | [What to Verify]  |
+| [Edge Case 2] |  Low     | [Expected Result] | [What to Verify]  |
 
 ## Error Conditions 
-| Scenario | Priority | Expected Behavior | Validation Points |
-|----------|----------|-------------------|-------------------|
-| [Error Scenario 1] | Medium | [Expected Result] | [What to Verify] |
-| [Error Scenario 2] | Low | [Expected Result] | [What to Verify] |
+| Scenario              | Priority | Expected Behavior | Validation Points |
+|-----------------------|----------|-------------------|-------------------|
+| [Error Scenario 1]    | Medium   | [Expected Result] | [What to Verify]  |
+| [Error Scenario 2]    | Low      | [Expected Result] | [What to Verify]  |
 
 ## Accessibility Tests
-| Scenario | WCAG Level | Test Method |
-|----------|------------|-------------|
-| Keyboard navigation | AA | tab through all interactive elements |
-| Screen Reader Compatibility | AA | Verify Aria labels and roles |
-| Color contrast | AA | Validate text/background contrast |
+| Scenario                      | WCAG Level | Test Method                          |
+|-------------------------------|------------|--------------------------------------|
+| Keyboard navigation           | AA         | tab through all interactive elements |
+| Screen Reader Compatibility   | AA         | Verify Aria labels and roles         |
+| Color contrast                | AA         | Validate text/background contrast    |
 
 ### Test Data Examples
 ```typescript
@@ -79,8 +79,8 @@ await CommonSteps.login();
 ### Risk Assessment
 | Risk Area | Impact | Likelihood | Migitagtion Strategy |
 |-----------|--------|------------|----------------------|
-| [Risk 1] | High | Medium | [Strategy] |
-| [Risk 1] | Medium | High | [Strategy] |
+| [Risk 1]  | High   | Medium     | [Strategy]           |
+| [Risk 1]  | Medium | High       | [Strategy]           |
 
 ### Test Execution Priority
 1. **Smoke Tests**: Core functionality validation
